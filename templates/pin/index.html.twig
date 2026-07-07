@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les pins{% endblock %}
+
+{% block body %}
+
+<div class="grid">
+    {% for pin in pins%}
+
+<div class="card">
+            <a href="{{ path('app_pin_show', {id: pin.id}) }}">
+                {% if pin.imageName %}
+                    <img src="{{ asset('images/pins/' ~ pin.imageName) }}" alt="{{ pin.title }}">
+                {% endif %}
+                <h3>{{ pin.title }}</h3>
+            </a>
+            <p>par {{ pin.user.userIdentifier }}</p>
+        </div>
+    {% else %}
+        <p>Aucun pin pour le moment.</p>
+    {% endfor %}
+</div>
+{% endblock %}

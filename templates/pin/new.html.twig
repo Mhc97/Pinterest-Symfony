@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau pin{% endblock %}
+
+{% block body %}
+<h1>Ajouter un pin</h1>
+
+{{ form_start(form, {attr: {enctype: 'multipart/form-data'}}) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.imageFile) }}
+    <button type="submit">Publier</button>
+{{ form_end(form) }}
+{% endblock %}

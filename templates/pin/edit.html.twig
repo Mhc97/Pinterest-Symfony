@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier {{ pin.title }}{% endblock %}
+
+{% block body %}
+<h1>Modifier le pin</h1>
+
+{% if pin.imageName %}
+    <img src="{{ asset('images/pins/' ~ pin.imageName) }}" alt="{{ pin.title }}" width="200">
+{% endif %}
+
+{{ form_start(form, {attr: {enctype: 'multipart/form-data'}}) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.imageFile) }}
+    <button type="submit">Enregistrer</button>
+{{ form_end(form) }}
+{% endblock %}

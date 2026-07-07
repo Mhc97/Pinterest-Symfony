@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pin.title }}{% endblock %}
+
+{% block body %}
+<div class="pin-detail">
+    {% if pin.imageName %}
+        <img src="{{ asset('images/pins/' ~ pin.imageName) }}" alt="{{ pin.title }}">
+    {% endif %}
+    <h1>{{ pin.title }}</h1>
+    <p>{{ pin.description }}</p>
+    <p>Publié par {{ pin.user.userIdentifier }} le {{ pin.createdAt|date('d/m/Y') }}</p>
+
+    {% if app.user and app.user == pin.user %}
+        <a href="{{ path('app_pin_edit', {id: pin.id}) }}">Modifier</a>
+
+        <form method="post" action="{{ path('app_pin_delete', {id: pin.id}) }}" onsubmit="return confirm('Supprimer ce pin ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ pin.id) }}">
+            <button type="submit">Supprimer</button>
+        </form>
+    {% endif %}
+
+    <a href="{{ path('app_pin_index') }}">Retour</a>
+</div>
+{% endblock %}
