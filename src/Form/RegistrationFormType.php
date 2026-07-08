@@ -18,15 +18,6 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email')
             ->add('plainPassword', RepeatedType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank(message: 'Merci de saisir un mot de passe.',
-                    ),
-                ],
-            ])
-            ->add('plainPassword', RepeatedType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'first_options' => ['label' => 'Mot de passe'],
