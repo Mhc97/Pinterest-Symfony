@@ -12,17 +12,25 @@
 </head>
 <body>
     <nav>
-           <a href="{{ path('app_pin_index') }}" class="brand" <span class="mark">P</span>interest
+        <a href="{{ path('app_pin_index') }}" class="brand">
+            <span class="mark">P</span>interest
         </a>
-<div class="nav-links">
-        {% if app.user %}
-            <a href="{{ path('app_pin_new') }}">Ajouter image</a>
-            <span>{{ app.user.userIdentifier }}</span>
-            <a href="{{ path('app_logout') }}">Déconnexion</a>
-        {% else %}
-            <a href="{{ path('app_login') }}">Connexion</a>
-            <a href="{{ path('app_register') }}">Inscription</a>
-        {% endif %}
+
+        <div class="nav-links">
+            {% if app.user %}
+                <a href="{{ path('app_pin_new') }}" class="cta">+ {{ 'nav.add_pin'|trans }}</a>
+                <span class="user-chip">{{ app.user.userIdentifier }}</span>
+                <a href="{{ path('app_logout') }}">{{ 'nav.logout'|trans }}</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">{{ 'nav.login'|trans }}</a>
+                <a href="{{ path('app_register') }}">{{ 'nav.register'|trans }}</a>
+            {% endif %}
+
+            <div class="lang-switch">
+                <a href="{{ path('app_locale_switch', {locale: 'fr'}) }}" class="{{ app.request.locale == 'fr' ? 'active' : '' }}">FR</a>
+                <a href="{{ path('app_locale_switch', {locale: 'en'}) }}" class="{{ app.request.locale == 'en' ? 'active' : '' }}">EN</a>
+            </div>
+        </div>
     </nav>
 
     {% for message in app.flashes('success') %}

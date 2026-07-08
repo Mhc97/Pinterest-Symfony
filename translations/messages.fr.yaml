@@ -1,0 +1,35 @@
+nav:
+    home: Accueil
+    add_pin: Ajouter un pin
+    login: Connexion
+    register: Inscription
+    logout: Déconnexion
+
+pin:
+    index:
+        title: Tous les pins
+        empty: Aucun pin pour le moment.
+    show:
+        published_by: "Publié par %user% le %date%"
+        edit: Modifier
+        delete: Supprimer
+        delete_confirm: Supprimer ce pin ?
+        back: Retour
+    form:
+        title_label: Titre
+        description_label: Description
+        image_label: Image
+        submit_new: Publier
+        submit_edit: Enregistrer
+
+auth:
+    login:
+        title: Connexion
+        email: Email
+        password: Mot de passe
+        submit: Se connecter
+    register:
+        title: Inscription
+        password: Mot de passe
+        password_confirm: Confirmez le mot de passe
+        submit: S'inscrire

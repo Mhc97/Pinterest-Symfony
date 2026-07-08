@@ -1,0 +1,35 @@
+nav:
+    home: Home
+    add_pin: Add a pin
+    login: Log in
+    register: Sign up
+    logout: Log out
+
+pin:
+    index:
+        title: All pins
+        empty: No pins yet.
+    show:
+        published_by: "Posted by %user% on %date%"
+        edit: Edit
+        delete: Delete
+        delete_confirm: Delete this pin?
+        back: Back
+    form:
+        title_label: Title
+        description_label: Description
+        image_label: Image
+        submit_new: Publish
+        submit_edit: Save
+
+auth:
+    login:
+        title: Log in
+        email: Email
+        password: Password
+        submit: Log in
+    register:
+        title: Sign up
+        password: Password
+        password_confirm: Confirm password
+        submit: Sign up

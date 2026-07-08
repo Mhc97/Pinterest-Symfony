@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Tous les pins{% endblock %}
+{% block title %}{{ 'pin.index.title'|trans }}{% endblock %}
 
 {% block body %}
 
@@ -17,7 +17,7 @@
             <p>par {{ pin.user.userIdentifier }}</p>
         </div>
     {% else %}
-        <p>Aucune image pour le moment.</p>
+        <p>{{ 'pin.index.empty'|trans }}</p>
     {% endfor %}
 </div>
 {% endblock %}

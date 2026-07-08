@@ -9,17 +9,21 @@
     {% endif %}
     <h1>{{ pin.title }}</h1>
     <p>{{ pin.description }}</p>
-    <p>Publié par {{ pin.user.userIdentifier }} le {{ pin.createdAt|date('d/m/Y') }}</p>
-
+    <p>
+{{ 'pin.show.published_by'|trans({
+    '%user%': pin.user.userIdentifier,
+    '%date%': pin.createdAt|date('d/m/Y')
+}) }}
+</p>
     {% if app.user and app.user == pin.user %}
-        <a href="{{ path('app_pin_edit', {id: pin.id}) }}">Modifier</a>
+  <a href="{{ path('app_pin_edit', {id: pin.id}) }}">{{ 'pin.show.edit'|trans }}</a>
 
-        <form method="post" action="{{ path('app_pin_delete', {id: pin.id}) }}" onsubmit="return confirm('Supprimer ce pin ?');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ pin.id) }}">
-            <button type="submit">Supprimer</button>
-        </form>
+    <form method="post" action="{{ path('app_pin_delete', {id: pin.id}) }}" onsubmit="return confirm('{{ 'pin.show.delete_confirm'|trans }}');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ pin.id) }}">
+        <button type="submit">{{ 'pin.show.delete'|trans }}</button>
+    </form>
     {% endif %}
 
-    <a href="{{ path('app_pin_index') }}">Retour</a>
+    <a href="{{ path('app_pin_index') }}">{{ 'pin.show.back'|trans }}</a>
 </div>
 {% endblock %}

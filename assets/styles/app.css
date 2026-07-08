@@ -29,7 +29,7 @@ nav {
     align-items: center;
     gap: .5rem;
     justify-content: space-between;
-    max-width: 1100px;
+    max-width: 2500px;
     margin: 1rem auto;
     padding: .6rem 1.2rem;
     background: #ffffffc0;
@@ -263,3 +263,24 @@ button:hover, .btn:hover { background: var(--teal-bright); }
 }
 
 .pin-detail button:hover { background: #931d17; }
+
+.lang-switch {
+    display: flex;
+    gap: 2px;
+    background: var(--teal-pale);
+    border-radius: 999px;
+    padding: 2px;
+    margin-left: .3rem;
+}
+
+.lang-switch a {
+    padding: .3rem .6rem !important;
+    font-size: .78rem !important;
+    font-weight: 600;
+    color: var(--teal-deep) !important;
+}
+
+.lang-switch a.active {
+    background: var(--teal-deep);
+    color: #fff !important;
+}

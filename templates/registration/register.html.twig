@@ -3,13 +3,13 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <h1>{{ 'auth.register.title'|trans }}</h1>
 
  {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.email) }}
     {{ form_row(registrationForm.plainPassword.first) }}
     {{ form_row(registrationForm.plainPassword.second) }}
 
-        <button type="submit" class="btn">S'inscrire</button>
+        <button type="submit" class="btn"> {{ 'auth.register.submit'|trans }}</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
